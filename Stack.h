@@ -45,7 +45,7 @@ void pop(Stack *st){
     }
     else
     {
-        printf("%d was popped.", st->item[st->top-=1]);
+        printf("%d was popped.", st->item[st->top--]);
     }
 }
 
