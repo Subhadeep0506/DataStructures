@@ -23,6 +23,11 @@ int main(){
             case 2:
                 root = display(root);
                 break;
+            case 3:
+                printf("Enter data you want to delete: ");
+                scanf("%d", &data);
+                root = Remove(root, data);
+                break;    
             case 4:
                 printf("Enter data you want to search: ");
                 scanf("%d", &data);
