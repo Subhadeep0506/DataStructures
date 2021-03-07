@@ -58,6 +58,15 @@ int main()
             break;    
 
         case 10:
+            start = sortList(start);
+            break;
+            
+        case 11:
+            start = reverseList(start);
+            printf("List reversed.\n");
+            break;
+
+        case 12:
             return 0;
             
         default:
@@ -79,5 +88,7 @@ void displayMenu(){
     printf("\n7. Insert node before a existing node");
     printf("\n8. Insert node after a existing node");
     printf("\n9. Search for an element.");
-    printf("\n10. Exit");
+    printf("\n10. Sorting the elements.");
+    printf("\n11. Reversing the elements.");
+    printf("\n12. Exit");
 }

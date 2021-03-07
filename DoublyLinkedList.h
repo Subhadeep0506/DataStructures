@@ -67,3 +67,12 @@ NODE *displayBackward(NODE *start){
     printf("%d ", ptr->data);
     return start;
 }
+
+NODE *insertBeginning(NODE *start, int data){
+    NODE *ptr, *newnode;
+    newnode = (NODE*)malloc(sizeof(NODE));
+    newnode->data = data;
+    ptr = start;
+    
+    return start;
+}

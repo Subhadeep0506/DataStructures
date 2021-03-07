@@ -22,7 +22,7 @@ int main(){
             case 3:
                 start = displayBackward(start);
                 break;
-            case 4:
+            case 6:
                 return 0; 
             default:
                 printf("INVALID CHOICE !");
@@ -36,5 +36,7 @@ void displayMenu(){
     printf("\n1. Create list");
     printf("\n2. Display Forward");
     printf("\n3. Display Backward");
-    printf("\n4. Exit");
+    printf("\n4. Insert Beginning");
+    printf("\n5. Insert Ending");
+    printf("\n6. Exit");
 }

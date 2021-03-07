@@ -23,7 +23,6 @@ NODE *createList(NODE *start)
         newnode->data = num;
         if (start == NULL)
         {
-
             newnode->next = NULL;
             start = newnode;
         }
@@ -172,4 +171,22 @@ NODE *searchElem(NODE *start){
     else 
         printf("Element doesn't exist !");
     return start;       
+}
+
+NODE *sortList(NODE * start){
+    
+    return start;
+}
+
+NODE *reverseList(NODE *start){
+
+    NODE *current = start, *next = NULL, *prev = NULL;
+    while(current != NULL){
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    start = prev;
+    return start;
 }
