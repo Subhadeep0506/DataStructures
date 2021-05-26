@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-
 struct tree{
     struct tree *left;
     int data;
@@ -11,7 +10,7 @@ struct tree{
 
 typedef struct tree NODE;
 
-NODE *inserData(NODE *root, int data){
+NODE *insertData(NODE *root, int data){
 
     NODE *newnode;
     if(root == NULL){

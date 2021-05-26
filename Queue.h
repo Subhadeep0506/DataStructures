@@ -34,7 +34,6 @@ void insert(Queue *q1, int n){
         q1->item[q1->rear] = n;
         printf("Element inserted successfully !");
     } 
-
 }
 
 void removeElem(Queue *q1){
@@ -48,7 +47,6 @@ void removeElem(Queue *q1){
         q1->front++;
         printf("%d deleted successfully !", n);
     } 
-
 }
 
 void display(Queue *q1){

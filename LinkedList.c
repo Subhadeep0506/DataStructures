@@ -25,23 +25,23 @@ int main()
             start = displayList(start);
             break;
 
-        case 3:
-            printf("Enter data to be added at end of list: ");
-            scanf("%d", &data);
-            start = addAtEnd(start, data);
-            break;
+        // case 3:
+        //     printf("Enter data to be added at end of list: ");
+        //     scanf("%d", &data);
+        //     start = addAtEnd(start, data);
+        //     break;
 
-        case 4:
-            printf("Enter data to be added at beginning of list: ");
-            scanf("%d", &data);
-            start = addAtBeginning(start, data);
-            break;
+        // case 4:
+        //     printf("Enter data to be added at beginning of list: ");
+        //     scanf("%d", &data);
+        //     start = addAtBeginning(start, data);
+        //     break;
 
         case 5:
             start = deleteAtEnd(start);
             break;
 
-        case 6:
+        case 3:
             start = deleteAtBeginning(start);
             break;
 
@@ -66,7 +66,7 @@ int main()
             printf("List reversed.\n");
             break;
 
-        case 12:
+        case 4:
             return 0;
             
         default:
@@ -81,14 +81,16 @@ void displayMenu(){
 
     printf("\n1. Create List");
     printf("\n2. Display List");
-    printf("\n3. Add data at end");
-    printf("\n4. Add data at beginning");
-    printf("\n5. Delete at end");
-    printf("\n6. Delete at beginning");
-    printf("\n7. Insert node before a existing node");
-    printf("\n8. Insert node after a existing node");
-    printf("\n9. Search for an element.");
-    printf("\n10. Sorting the elements.");
-    printf("\n11. Reversing the elements.");
-    printf("\n12. Exit");
+    printf("\n3. Delete at beginning");
+    printf("\n4. Exit");
+    // printf("\n3. Add data at end");
+    // printf("\n4. Add data at beginning");
+    // printf("\n5. Delete at end");
+    
+    // printf("\n7. Insert node before a existing node");
+    // printf("\n8. Insert node after a existing node");
+    // printf("\n9. Search for an element.");
+    // printf("\n10. Sorting the elements.");
+    // printf("\n11. Reversing the elements.");
+    
 }

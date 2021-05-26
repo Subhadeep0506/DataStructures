@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 typedef struct node
 {
 	int data;
@@ -18,7 +18,7 @@ node *RR(node *);
 node *LL(node *);
 node *LR(node *);
 node *RL(node *);
-int BF(node *);
+int balanceFactor(node *);
  
 int main()
 {
@@ -84,7 +84,7 @@ node * insert(node *root,int x)
 		if(x > root->data)		// insert in right subtree
 		{
 			root->right=insert(root->right,x);
-			if(BF(root)==-2)
+			if(balanceFactor(root)==-2)
 				if(x>root->right->data)
 					root=RR(root);
 				else
@@ -94,7 +94,7 @@ node * insert(node *root,int x)
 			if(x<root->data)
 			{
 				root->left=insert(root->left,x);
-				if(BF(root)==2)
+				if(balanceFactor(root)==2)
 					if(x < root->left->data)
 						root=LL(root);
 					else
@@ -118,8 +118,8 @@ node * Delete(node *root,int x)
 		if(x > root->data)		// insert in right subtree
 		{
 			root->right=Delete(root->right,x);
-			if(BF(root)==2)
-				if(BF(root->left)>=0)
+			if(balanceFactor(root)==2)
+				if(balanceFactor(root->left)>=0)
 					root=LL(root);
 				else
 					root=LR(root);
@@ -128,8 +128,8 @@ node * Delete(node *root,int x)
 			if(x<root->data)
 			{
 				root->left=Delete(root->left,x);
-				if(BF(root)==-2)	//Rebalance during windup
-					if(BF(root->right)<=0)
+				if(balanceFactor(root)==-2)	//Rebalance during windup
+					if(balanceFactor(root->right)<=0)
 						root=RR(root);
 					else
 						root=RL(root);
@@ -147,8 +147,8 @@ node * Delete(node *root,int x)
 					root->data=p->data;
 					root->right=Delete(root->right,p->data);
 					
-					if(BF(root)==2)//Rebalance during windup
-						if(BF(root->left)>=0)
+					if(balanceFactor(root)==2)//Rebalance during windup
+						if(balanceFactor(root->left)>=0)
 							root=LL(root);
 						else
 							root=LR(root);\
@@ -232,7 +232,7 @@ node * RL(node *root)
 	return(root);
 }
  
-int BF(node *root)
+int balanceFactor(node *root)
 {
 	int lh,rh;
 	if(root==NULL)
@@ -255,7 +255,7 @@ void preorder(node *root)
 {
 	if(root!=NULL)
 	{
-		printf("%d(Bf=%d)",root->data,BF(root));
+		printf("%d(Bf=%d)",root->data,balanceFactor(root));
 		preorder(root->left);
 		preorder(root->right);
 	}
@@ -266,7 +266,7 @@ void inorder(node *root)
 	if(root!=NULL)
 	{
 		inorder(root->left);
-		printf("%d(Bf=%d)",root->data,BF(root));
+		printf("%d(Bf=%d)",root->data,balanceFactor(root));
 		inorder(root->right);
 	}
 }

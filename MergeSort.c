@@ -1,10 +1,9 @@
 #include<stdio.h>
 
-void mergeSort(int arr[], int p, int r);
-void merge(int arr[], int p, int q, int r);
+void mergeSort(int arr[], int start, int end);
+void merge(int arr[], int start, int mid, int end);
 
 int main(){
-    //Your code here
     int arr[50];
     int size, i;
 
@@ -25,53 +24,33 @@ int main(){
     return 0;
 }
 
-void mergeSort(int arr[], int p, int r){
+void mergeSort(int arr[], int start, int end){
     
-    int q;
-    if(p < r){
+    int mid;
+    if(start < end){
 
-        q = (p+r)/2;
-        mergeSort(arr, p , q);
-        mergeSort(arr, q + 1, r);
-        merge(arr, p, q, r);
+        mid = (start+end)/2;
+        mergeSort(arr, start , mid);
+        mergeSort(arr, mid + 1, end);
+        merge(arr, start, mid, end);
     }
-
 }
 
-void merge(int arr[], int p, int q, int r){
+void merge(int arr[], int start, int mid, int end){
 
-    int temp[50], l1 = p, r1 = q + 1, i = p;
-    while((l1 <= q) && (r1 <= r)){
-
-        if(arr[l1] < arr[r1]){
-
-            temp[i] = arr[l1];
-            l1 += 1;
-            i += 1;
-        }
-
-        else{
-
-            temp[i] = arr[r1];
-            r1 += 1;
-            i +=1;
-        }
+    int temp[50], i = start, j = mid + 1, tempIndex = start;
+    while((i <= mid) && (j <= end)){
+        temp[tempIndex++] = (arr[i] <= arr[j] ? arr[i++] : arr[j++]);
     }
 
-    while(l1 <= q){
+    while(i <= mid){
+        temp[tempIndex++] = arr[i++];
+    }
 
-            temp[i] = arr[l1];
-            l1 += 1;
-            i += 1;
-        }
-
-        while(r1 <= r){
-
-            temp[i] = arr[r1];
-            r1 += 1;
-            i += 1;
-        }
-    for(i = p; i <= r; i+=1){
-        arr[i] = temp[i];
+    while(j <= end){
+        temp[tempIndex++] = arr[j++];
+    }
+    for(tempIndex = start; tempIndex <= end; tempIndex+=1){
+        arr[tempIndex] = temp[tempIndex];
     }
 }

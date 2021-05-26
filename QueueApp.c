@@ -9,7 +9,6 @@ int main(){
     q1.rear = -1;
 
     do{
-        
         printf("\n1. Insert\n2. Remove\n3. Display\n4. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
